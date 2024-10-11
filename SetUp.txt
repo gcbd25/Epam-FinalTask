@@ -1,0 +1,3 @@
+1) Install ALL the dependencies to be used in Project in POM file
+2) Under Main project path, create "Feature" and "Configuration" Folders
+3) Under src/test/java, create "dataProvider", "pageObjects", "stepDefinitions", "testRunner", "Utilities" folders
