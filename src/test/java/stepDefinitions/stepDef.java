@@ -20,6 +20,7 @@ import utilities.locators.locatorsCreateAccount;
 import utilities.pageHelper;
 
 import java.io.File;
+import java.io.IOException;
 
 public class stepDef extends BaseClass{
     @Given("User Launch {string} Browser")
@@ -70,47 +71,47 @@ public class stepDef extends BaseClass{
     }
 
     @And("User click Create Account Link")
-    public void userClickCreateAccountLink() {
+    public void userClickCreateAccountLink() throws Exception {
         common.clickCreateAccountLink();
     }
 
     @Then("User validate page title as {string}")
-    public void userValidatePageTitleAs(String pageName) {
+    public void userValidatePageTitleAs(String pageName) throws Exception{
         common.assertPageTitle(pageName);
     }
 
     @Then("User enters First Name on Crate Account Page")
-    public void user_enters_first_name_on_crate_account_page() {
+    public void user_enters_first_name_on_crate_account_page() throws Exception {
         createAccPage.sendFirstName(configFileReader.getFirstName());
     }
 
     @Then("User enters Last Name on Crate Account Page")
-    public void user_enters_last_name_on_crate_account_page() {
+    public void user_enters_last_name_on_crate_account_page() throws Exception {
         createAccPage.sendLastName(configFileReader.getLastName());
     }
 
     @Then("User enters Email on Crate Account Page")
-    public void user_enters_email_on_crate_account_page() {
+    public void user_enters_email_on_crate_account_page() throws Exception {
         createAccPage.sendEmail(configFileReader.getEmail());
     }
 
     @Then("User enters Password on Crate Account Page")
-    public void user_enters_password_on_crate_account_page() {
+    public void user_enters_password_on_crate_account_page()  throws Exception {
         createAccPage.sendPsw(configFileReader.getValidCreateAccountPsw());
     }
 
     @Then("User enters Confirms Password on Crate Account Page")
-    public void user_enters_confirms_password_on_crate_account_page() {
+    public void user_enters_confirms_password_on_crate_account_page() throws Exception {
         createAccPage.sendConfirmPsw(configFileReader.getValidCreateAccountPsw());
     }
 
     @And("User click Create Account Button")
-    public void userClickCreateAccountButton() {
+    public void userClickCreateAccountButton() throws Exception {
         createAccPage.clickCreateAccountButton();
     }
 
     @After
     public void quitBrowser(){
-        driver.quit();
+        pgHelper.quitBrowser();
     }
 }
