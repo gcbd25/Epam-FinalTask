@@ -9,7 +9,7 @@ import org.junit.runner.RunWith;
 @CucumberOptions(
         features = ".//Features",
         glue = "stepDefinitions",
-        //tags = "@Skip",
+        //tags = "@Test",
         dryRun=false,
         plugin = {"pretty", "io.qameta.allure.cucumber7jvm.AllureCucumber7Jvm"}
 )

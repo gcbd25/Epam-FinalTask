@@ -114,4 +114,14 @@ public class stepDef extends BaseClass{
     public void quitBrowser(){
         pgHelper.quitBrowser();
     }
+
+    @And("User enters {string} on Create Account Page")
+    public void userEntersOnCreateAccountPage(String psw) throws Exception{
+        createAccPage.sendPsw(psw);
+    }
+
+    @Then("User validate password strength as {string}")
+    public void userValidateValidatePasswordStrengthAs(String Str) throws Exception{
+        createAccPage.assertPasswordStrength(Str);
+    }
 }

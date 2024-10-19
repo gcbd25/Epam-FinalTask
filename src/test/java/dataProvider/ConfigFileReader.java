@@ -8,7 +8,7 @@ import java.util.Properties;
 
 public class ConfigFileReader {
     public Properties properties;
-    private final String propertyFilePath= "C:/Users/gbrav/IdeaProjects/LUMA-Cucumber/Configuration/config.properties";
+    private final String propertyFilePath= "./Configuration/config.properties";
     public ConfigFileReader(){
         BufferedReader reader;
         try {

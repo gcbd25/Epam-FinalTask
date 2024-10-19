@@ -1,8 +1,8 @@
-Feature: Create Account in LUMA Website
+Feature: Create Account
 
   @CreateAccount
   @Severity=Critical
-  Scenario: As a User, I want to validate the functionality for Log In using Valid Credentials
+  Scenario: As a User, I want to successfully create an account
     Given User Launch "Chrome" Browser
     When User Opens URL
     And User click Create Account Link
