@@ -61,6 +61,14 @@ public class pageHelper {
         Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30L)).pollingEvery(Duration.ofSeconds(5L)).ignoring(NoSuchElementException.class);
         wait.until(ExpectedConditions.presenceOfElementLocated(element));
     }
+    /*
+    Author: Gerardo Bravo
+    Function: Implemented to wait for an element to have specific text
+     */
+    public void waitTextOnElement (By element,String text) {
+        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30L)).pollingEvery(Duration.ofSeconds(5L)).ignoring(NoSuchElementException.class);
+        wait.until(ExpectedConditions.textToBePresentInElementLocated(element,text));
+    }
     /*----------------------Actions on page Section------------------------------------------*/
     /*
     Author: Gerardo Bravo
@@ -107,6 +115,13 @@ public class pageHelper {
      */
     public String getPageTitle () {
         return driver.getTitle();
+    }
+    /*
+    Author: Gerardo Bravo
+    Function: Implemented to get the title for the pages
+     */
+    public String getTextOfAnElement (By element) {
+        return driver.findElement(element).getText();
     }
     /*----------------------Assertions------------------------------------------*/
     /*

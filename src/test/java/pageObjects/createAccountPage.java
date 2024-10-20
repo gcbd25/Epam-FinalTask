@@ -81,9 +81,8 @@ public class createAccountPage extends BaseClass {
 
     public void assertPasswordStrength (String text) throws Exception {
         try {
-            System.out.println("Este es el string que obtiene de la pagina " + driver.findElement(locCreateAcc.txtStrength).getText());
-            System.out.println("Este es el string qUE SE ENVIA " + text);
-            pgHelper.assertEquals(driver.findElement(locCreateAcc.txtStrength).getText(),text);
+            pgHelper.waitTextOnElement(locCreateAcc.txtStrength,text);
+            pgHelper.assertEquals(pgHelper.getTextOfAnElement(locCreateAcc.txtStrength),text);
         }catch(Exception e) {
             pgHelper.exceptionHandler(e, "Error on Assertion");
             pgHelper.failStep("Error on Assertion");
