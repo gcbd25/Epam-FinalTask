@@ -79,4 +79,31 @@ public class ConfigFileReader {
             throw new RuntimeException("validCreateAccPsw not specified in the Configuration.properties file.");
         }
     }
+
+    public String getValidSignInEmail(){
+        String validSignInEmail = properties.getProperty("validEmail");
+        if(validSignInEmail != null){
+            return validSignInEmail;
+        } else {
+            throw new RuntimeException("validEmail not specified in the Configuration.properties file.");
+        }
+    }
+
+    public String getValidSignInPsw(){
+        String validSignInPsw = properties.getProperty("validPsw");
+        if(validSignInPsw != null){
+            return validSignInPsw;
+        } else {
+            throw new RuntimeException("validPsw not specified in the Configuration.properties file.");
+        }
+    }
+
+    public String getDropdownText(){
+        String message = properties.getProperty("ddwnMsg");
+        if(message != null){
+            return message;
+        } else {
+            throw new RuntimeException("ddwnMsg message not specified in the Configuration.properties file.");
+        }
+    }
 }

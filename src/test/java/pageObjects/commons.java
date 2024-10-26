@@ -42,4 +42,27 @@ public class commons extends BaseClass {
             pgHelper.failStep("Error on Assertion");
         }
     }
+
+    public void clickSignInLink () throws Exception {
+        try {
+            pgHelper.waitPresenceOfElementLocated(locCommon.lnkSignIn);
+            pgHelper.clickElement(locCommon.lnkSignIn);
+            pgHelper.screenshot("Click element: "+locCommon.lnkSignIn);
+        }catch(Exception e) {
+            pgHelper.exceptionHandler(e, "Error locating element: " + locCommon.lnkSignIn);
+            pgHelper.failStep("Error locating element: " + locCommon.lnkSignIn);
+
+        }
+    }
+
+    public void assertSignInDdwn (String text) throws Exception {
+        try {
+            pgHelper.waitPresenceOfElementLocated(locCommon.ddwnSignIn);
+            pgHelper.assertEquals(pgHelper.getTextOfAnElement(locCommon.ddwnSignIn),text);
+        }catch(Exception e) {
+            pgHelper.exceptionHandler(e, "Error on Assertion");
+            pgHelper.failStep("Error on Assertion");
+
+        }
+    }
 }

@@ -4,8 +4,10 @@ import dataProvider.ConfigFileReader;
 import org.openqa.selenium.WebDriver;
 import pageObjects.commons;
 import pageObjects.createAccountPage;
+import pageObjects.signInPage;
 import utilities.locators.locatorsCommon;
 import utilities.locators.locatorsCreateAccount;
+import utilities.locators.locatorsSignIn;
 import utilities.pageHelper;
 
 public class BaseClass {
@@ -18,7 +20,9 @@ public class BaseClass {
     //Locators
     public locatorsCommon locCommon;
     public locatorsCreateAccount locCreateAcc;
+    public locatorsSignIn locSingIn;
     //Page Objects
     public commons common;
     public createAccountPage createAccPage;
+    public signInPage signInPg;
 }

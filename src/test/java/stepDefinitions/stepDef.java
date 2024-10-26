@@ -15,8 +15,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import pageObjects.commons;
 import pageObjects.createAccountPage;
+import pageObjects.signInPage;
 import utilities.locators.locatorsCommon;
 import utilities.locators.locatorsCreateAccount;
+import utilities.locators.locatorsSignIn;
 import utilities.pageHelper;
 
 import java.io.File;
@@ -60,9 +62,11 @@ public class stepDef extends BaseClass{
         //Locators
         locCommon = new locatorsCommon();
         locCreateAcc = new locatorsCreateAccount();
+        locSingIn = new locatorsSignIn();
         //Page Objects
         common = new commons(driver);
         createAccPage = new createAccountPage(driver);
+        signInPg = new signInPage(driver);
     }
 
     @When("User Opens URL")
@@ -123,5 +127,32 @@ public class stepDef extends BaseClass{
     @Then("User validate password strength as {string}")
     public void userValidateValidatePasswordStrengthAs(String Str) throws Exception{
         createAccPage.assertPasswordStrength(Str);
+    }
+
+    @Then("User validate {string} error messages on Create Account Page")
+    public void userValidateErrorMessagesOnCreateAccountPage(String msgs) throws Exception{
+        createAccPage.assertNumberOfMessages(msgs);
+    }
+
+    @When("User click Sign In Link")
+    public void user_click_sign_in_link() throws Exception{
+        common.clickSignInLink();
+    }
+    @Then("User enters Valid Email on Sign In Page")
+    public void user_enters_valid_email_on_sign_in_page() throws Exception{
+        signInPg.sendEmail(configFileReader.getValidSignInEmail());
+    }
+    @Then("User enters Valid Password on Sign In Page")
+    public void user_enters_valid_password_on_sign_in_page() throws Exception{
+        signInPg.sendPsw(configFileReader.getValidSignInPsw());
+    }
+    @Then("User click Sign In Button")
+    public void user_click_sign_in_button() throws Exception{
+        signInPg.clickSignInButton();
+    }
+
+    @Then("User validate login dropdown message")
+    public void userValidateLoginDropdownMessage() throws Exception{
+        common.assertSignInDdwn(configFileReader.getDropdownText());
     }
 }

@@ -88,4 +88,13 @@ public class createAccountPage extends BaseClass {
             pgHelper.failStep("Error on Assertion");
         }
     }
+
+    public void assertNumberOfMessages (String msgs)throws Exception {
+        try {
+            pgHelper.assertMultipleXpaths(locCreateAcc.numberMessages,msgs);
+        }catch(Exception e) {
+            pgHelper.exceptionHandler(e, "Error on Assertion");
+            pgHelper.failStep("Error on Assertion");
+        }
+    }
 }

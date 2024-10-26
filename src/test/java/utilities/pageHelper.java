@@ -136,6 +136,18 @@ public class pageHelper {
             logger.error("Step failed. Strings are different");
         }
     }
+    /*
+    Author: Gerardo Bravo
+    Function: Implemented to assert Multiple Xpath Locators
+     */
+    public void assertMultipleXpaths (By elements, String msgs){
+        try {
+            Assert.assertEquals(driver.findElements(elements).size(),Integer.parseInt(msgs));
+            logger.info("Step Passed. There are " + msgs + " error messages displayed");
+        }catch(Exception e) {
+            logger.error("Step failed. Strings are different");
+        }
+    }
     /*----------------------Fail Method------------------------------------------*/
     /*
     Author: Gerardo Bravo

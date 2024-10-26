@@ -17,5 +17,7 @@ public class locatorsCreateAccount {
     public By btnCreateAccount = By.xpath("//button[@title='Create an Account']");
     //Password Strength
     public By txtStrength = By.xpath("//span[@id='password-strength-meter-label']");
+    //Number of error messages
+    public By numberMessages = By.xpath("//div[@class='mage-error']");
 
 }
