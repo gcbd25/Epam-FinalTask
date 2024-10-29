@@ -106,4 +106,31 @@ public class ConfigFileReader {
             throw new RuntimeException("ddwnMsg message not specified in the Configuration.properties file.");
         }
     }
+
+    public String getInvalidSignInEmail(){
+        String validSignInEmail = properties.getProperty("invalidEmail");
+        if(validSignInEmail != null){
+            return validSignInEmail;
+        } else {
+            throw new RuntimeException("invalidEmail not specified in the Configuration.properties file.");
+        }
+    }
+
+    public String getInvalidSignInPsw(){
+        String validSignInPsw = properties.getProperty("invalidPsw");
+        if(validSignInPsw != null){
+            return validSignInPsw;
+        } else {
+            throw new RuntimeException("invalidPsw not specified in the Configuration.properties file.");
+        }
+    }
+
+    public String getInvalidCredentialsMessage(){
+        String errorMsg = properties.getProperty("errorMsgInvalidCred");
+        if(errorMsg != null){
+            return errorMsg;
+        } else {
+            throw new RuntimeException("errorMsgInvalidCred not specified in the Configuration.properties file.");
+        }
+    }
 }

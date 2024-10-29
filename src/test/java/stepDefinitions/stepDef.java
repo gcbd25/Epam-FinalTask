@@ -155,4 +155,19 @@ public class stepDef extends BaseClass{
     public void userValidateLoginDropdownMessage() throws Exception{
         common.assertSignInDdwn(configFileReader.getDropdownText());
     }
+
+    @And("User enters Invalid Password on Sign In Page")
+    public void userEntersInvalidPasswordOnSignInPage() throws Exception{
+        signInPg.sendPsw(configFileReader.getInvalidSignInPsw());
+    }
+
+    @Then("User validate error message")
+    public void userValidateErrorMessage() throws Exception{
+        signInPg.validateSignInErrorMessage(configFileReader.getInvalidCredentialsMessage());
+    }
+
+    @And("User enters Invalid Email on Sign In Page")
+    public void userEntersInvalidEmailOnSignInPage() throws Exception{
+        signInPg.sendEmail(configFileReader.getInvalidSignInEmail());
+    }
 }

@@ -47,4 +47,17 @@ public class signInPage extends BaseClass {
             pgHelper.failStep("Error locating element: " + locSingIn.btnSignIn);
         }
     }
+
+    public void validateSignInErrorMessage (String msg) throws Exception {
+        try {
+            //pgHelper.waitPresenceOfElementLocated(locSingIn.txtInvalidCredentials);
+            pgHelper.waitTextOnElement(locSingIn.txtInvalidCredentials,msg);
+            pgHelper.assertEquals(pgHelper.getTextOfAnElement(locSingIn.txtInvalidCredentials),msg);
+        }catch(Exception e) {
+            pgHelper.exceptionHandler(e, "Error on Assertion");
+            pgHelper.failStep("Error on Assertion");
+        }
+    }
+
+
 }

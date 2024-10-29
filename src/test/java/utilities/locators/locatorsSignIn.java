@@ -9,4 +9,7 @@ public class locatorsSignIn {
     public By inpPsw = By.xpath("//fieldset[@class='fieldset login']//input[@id='pass']");
     //Button Sign In
     public  By btnSignIn = By.xpath("//fieldset[@class='fieldset login']//span[contains(text(),'Sign In')]");
+    //Invalid Credentials Error Message
+    public By txtInvalidCredentials = By.xpath("//div[@data-bind='html: $parent.prepareMessageForHtml(message.text)']");
+
 }
