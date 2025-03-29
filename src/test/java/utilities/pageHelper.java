@@ -13,7 +13,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.Assert;
 
-public class pageHelper {
+public class pageHelper{
     public WebDriver driver;
     private static final Logger logger = LogManager.getLogger(pageHelper.class);
 
@@ -76,14 +76,16 @@ public class pageHelper {
      */
     public void clearField (By element) {
         driver.findElement(element).clear();
+        logger.info("Step Passed. Cleared field for element on locator: " + element);
     }
     /*
     Author: Gerardo Bravo
     Function: Implemented to input text on Input fields
      */
-    public void sendTextOnField (WebElement element,String Message) {
-        element.sendKeys(Message);
-        logger.info("Step Passed. Sent " + Message + " on xpath: " + element);
+    public void sendTextOnField (By element,String Message) {
+        //element.sendKeys(Message);
+        driver.findElement(element).sendKeys(Message);
+        logger.info("Step Passed. Sent " + Message + " on locator: " + element);
     }
     /*
     Author: Gerardo Bravo
@@ -91,14 +93,7 @@ public class pageHelper {
      */
     public void clickElement (By element) {
         driver.findElement(element).click();
-        logger.info("Step Passed. Clicked element on xpath: " + element);
-    }
-    /*
-    Author: Gerardo Bravo
-    Function: Implemented to get the title for the pages
-     */
-    public String getPageTitle () {
-        return driver.getTitle();
+        logger.info("Step Passed. Clicked element on locator: " + element);
     }
     /*
     Author: Gerardo Bravo
@@ -112,22 +107,10 @@ public class pageHelper {
     Author: Gerardo Bravo
     Function: Implemented to perform asserts
      */
-    public void assertEquals (String text1, String text2){
+    public void assertContains (String text1, String text2){
         try {
-            Assert.assertEquals(text1, text2);
+            Assert.assertTrue(text1.contains(text2));
             logger.info("Step Passed. Both texts match");
-        }catch(Exception e) {
-            logger.error("Step failed. Strings are different");
-        }
-    }
-    /*
-    Author: Gerardo Bravo
-    Function: Implemented to assert Multiple Xpath Locators
-     */
-    public void assertMultipleXpaths (By elements, String msgs){
-        try {
-            Assert.assertEquals(driver.findElements(elements).size(),Integer.parseInt(msgs));
-            logger.info("Step Passed. There are " + msgs + " error messages displayed");
         }catch(Exception e) {
             logger.error("Step failed. Strings are different");
         }

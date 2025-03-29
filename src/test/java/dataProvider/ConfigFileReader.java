@@ -54,11 +54,20 @@ public class ConfigFileReader {
     }
 
     public String getPassword(){
-        String psw = properties.getProperty("lastName");
+        String psw = properties.getProperty("Password");
         if(psw != null){
             return psw;
         } else {
             throw new RuntimeException("Password not specified in the Configuration.properties file.");
+        }
+    }
+
+    public String getTitle(){
+        String title = properties.getProperty("title");
+        if(title != null){
+            return title;
+        } else {
+            throw new RuntimeException("Title not specified in the Configuration.properties file.");
         }
     }
 

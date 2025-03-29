@@ -2,6 +2,7 @@ package stepDefinitions;
 
 import dataProvider.ConfigFileReader;
 import org.openqa.selenium.WebDriver;
+import pageObjects.HomepagePage;
 import pageObjects.LoginPage;
 import utilities.locators.locators;
 import utilities.pageHelper;
@@ -15,6 +16,7 @@ public class BaseClass {
     public pageHelper pgHelper;
     //Page Objects
     protected LoginPage pgLogIn;
+    protected HomepagePage pgHomepage;
     //Locators
     protected static locators loc;
 }
