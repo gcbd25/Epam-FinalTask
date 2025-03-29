@@ -59,7 +59,6 @@ public class stepDef extends BaseClass{
         this.pgLogIn = new LoginPage(driver);
         this.pgHomepage = new HomepagePage(driver);
     }
-
     //Tear Down method to close browser after execution
     @After
     public void tearDown (){

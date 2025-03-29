@@ -18,6 +18,7 @@ public class LoginPage extends BaseClass {
         loc = new locators();
     }
 
+    //Send information on User field
     public void sendUserName (String user) throws Exception {
         try {
             pgHelper.waitPresenceOfElementLocated(loc.inpUsername);
@@ -28,7 +29,7 @@ public class LoginPage extends BaseClass {
             pgHelper.failStep("Error locating element: " + loc.inpUsername);
         }
     }
-
+    //Send information on Password field
     public void sendPassword (String psw) throws Exception {
         try {
             pgHelper.waitPresenceOfElementLocated(loc.inpPassword);
@@ -39,7 +40,7 @@ public class LoginPage extends BaseClass {
             pgHelper.failStep("Error locating element: " + loc.inpPassword);
         }
     }
-
+    //Clear information on User field
     public void clearUserName () throws Exception {
         try {
             pgHelper.clearField(loc.inpUsername);
@@ -50,7 +51,7 @@ public class LoginPage extends BaseClass {
             pgHelper.failStep("Error locating element: " + loc.inpUsername);
         }
     }
-
+    //Clear information on Password field
     public void clearPassword () throws Exception {
         try {
             pgHelper.clearField(loc.inpPassword);
@@ -61,7 +62,7 @@ public class LoginPage extends BaseClass {
             pgHelper.failStep("Error locating element: " + loc.inpPassword);
         }
     }
-
+    //Click Login Button
     public void clickLogIn()throws Exception{
         try {
             pgHelper.clickElement(loc.btnLogIn);
@@ -71,7 +72,7 @@ public class LoginPage extends BaseClass {
             pgHelper.failStep("Error locating element: " + loc.btnLogIn);
         }
     }
-
+    //Validate error messages on LogIn Page
     public void validateErrorMsg (String text) throws Exception {
         try {
             pgHelper.waitPresenceOfElementLocated(loc.errorMsg);
