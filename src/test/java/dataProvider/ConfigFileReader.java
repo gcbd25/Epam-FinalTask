@@ -31,7 +31,7 @@ public class ConfigFileReader {
         if(browser != null){
             return browser;
         } else {
-            throw new RuntimeException("url not specified in the Configuration.properties file.");
+            throw new RuntimeException("Browser not specified in the Configuration.properties file.");
         }
     }
 
@@ -44,93 +44,22 @@ public class ConfigFileReader {
         }
     }
 
-    public String getFirstName(){
-        String firstName = properties.getProperty("firstName");
-        if(firstName != null){
-            return firstName;
+    public String getUserName(){
+        String un = properties.getProperty("UserName");
+        if(un != null){
+            return un;
         } else {
-            throw new RuntimeException("firstName not specified in the Configuration.properties file.");
+            throw new RuntimeException("UserName not specified in the Configuration.properties file.");
         }
     }
 
-    public String getLastName(){
-        String lastName = properties.getProperty("lastName");
-        if(lastName != null){
-            return lastName;
+    public String getPassword(){
+        String psw = properties.getProperty("lastName");
+        if(psw != null){
+            return psw;
         } else {
-            throw new RuntimeException("lastName not specified in the Configuration.properties file.");
+            throw new RuntimeException("Password not specified in the Configuration.properties file.");
         }
     }
 
-    public String getEmail(){
-        String email = properties.getProperty("email");
-        if(email != null){
-            return email;
-        } else {
-            throw new RuntimeException("email not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getValidCreateAccountPsw(){
-        String validCreateAccPsw = properties.getProperty("validCreateAccPsw");
-        if(validCreateAccPsw != null){
-            return validCreateAccPsw;
-        } else {
-            throw new RuntimeException("validCreateAccPsw not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getValidSignInEmail(){
-        String validSignInEmail = properties.getProperty("validEmail");
-        if(validSignInEmail != null){
-            return validSignInEmail;
-        } else {
-            throw new RuntimeException("validEmail not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getValidSignInPsw(){
-        String validSignInPsw = properties.getProperty("validPsw");
-        if(validSignInPsw != null){
-            return validSignInPsw;
-        } else {
-            throw new RuntimeException("validPsw not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getDropdownText(){
-        String message = properties.getProperty("ddwnMsg");
-        if(message != null){
-            return message;
-        } else {
-            throw new RuntimeException("ddwnMsg message not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getInvalidSignInEmail(){
-        String validSignInEmail = properties.getProperty("invalidEmail");
-        if(validSignInEmail != null){
-            return validSignInEmail;
-        } else {
-            throw new RuntimeException("invalidEmail not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getInvalidSignInPsw(){
-        String validSignInPsw = properties.getProperty("invalidPsw");
-        if(validSignInPsw != null){
-            return validSignInPsw;
-        } else {
-            throw new RuntimeException("invalidPsw not specified in the Configuration.properties file.");
-        }
-    }
-
-    public String getInvalidCredentialsMessage(){
-        String errorMsg = properties.getProperty("errorMsgInvalidCred");
-        if(errorMsg != null){
-            return errorMsg;
-        } else {
-            throw new RuntimeException("errorMsgInvalidCred not specified in the Configuration.properties file.");
-        }
-    }
 }

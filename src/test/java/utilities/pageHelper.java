@@ -39,22 +39,6 @@ public class pageHelper {
     /*----------------------WAITS Section------------------------------------------*/
     /*
     Author: Gerardo Bravo
-    Function: Implemented to wait for the visibility of an specific element
-     */
-    public void waitVisibilityOfElementLocated (By element) {
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30L)).pollingEvery(Duration.ofSeconds(5L)).ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
-    }
-    /*
-    Author: Gerardo Bravo
-    Function: Implemented to wait for an element to be clickable
-     */
-    public void waitElementToBeClickable (By element) {
-        Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30L)).pollingEvery(Duration.ofSeconds(5L)).ignoring(NoSuchElementException.class);
-        wait.until(ExpectedConditions.elementToBeClickable(element));
-    }
-    /*
-    Author: Gerardo Bravo
     Function: Implemented to wait for an element to be located
      */
     public void waitPresenceOfElementLocated (By element) {
@@ -97,8 +81,8 @@ public class pageHelper {
     Author: Gerardo Bravo
     Function: Implemented to input text on Input fields
      */
-    public void sendTextOnField (By element,String Message) {
-        driver.findElement(element).sendKeys(Message);
+    public void sendTextOnField (WebElement element,String Message) {
+        element.sendKeys(Message);
         logger.info("Step Passed. Sent " + Message + " on xpath: " + element);
     }
     /*
